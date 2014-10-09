@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/txt_linearlayout"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+    
+    
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test"
+        android:textSize="15sp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:background="@color/blue"
+        android:textColor="#FFFFFF"
+        android:id="@+id/txt1" />
+    
+
+</LinearLayout>
