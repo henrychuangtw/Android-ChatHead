@@ -8,8 +8,8 @@ Dragging and Bounce animation
 ![](assets/drag.png)
 
 Messenger
-![](messenger1/drag.png)
-![](messenger2/drag.png)
+![](assets/messenger1.png)
+![](assets/messenger2.png)
 
 LongPressing to Stop
 ![](assets/pic_delete.png)
