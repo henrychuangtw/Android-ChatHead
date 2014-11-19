@@ -18,7 +18,7 @@ ChatHead like FB messenger
 
 <br/><br/>
 <declare-styleable name="MyImageViewAttr"><br/>
-    <attr name="hover_res" format="reference" /><br/>
+    &lt;attr name="hover_res" format="reference" /&gt;<br/>
 </declare-styleable><br/>
 
 <br/><br/>
