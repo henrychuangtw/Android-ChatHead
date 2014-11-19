@@ -17,4 +17,9 @@ ChatHead like FB messenger
 ![](assets/pic_delete.png)
 
 <br/><br/>
+<declare-styleable name="MyImageViewAttr"><br/>
+    <attr name="hover_res" format="reference" /><br/>
+</declare-styleable><br/>
+
+<br/><br/>
 henrychuang.tw@gmail.com
