@@ -22,7 +22,9 @@ startService(it);
 Stop ChatHead(see below pic 'LongPressing to Stop') :<br/>
 long click and move chathead to the round on bottom
 
-<br/><br/>
+
+ScreenShot
+-----------
 **Dragging and Bounce animation**<br/>
 ![](assets/drag.png)
 
