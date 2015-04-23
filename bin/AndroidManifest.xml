@@ -17,17 +17,15 @@
         
          <activity
             android:name="henrychuang.tw.chatheadmsg.Main"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
+            android:launchMode="singleTask"            
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         
-         <activity android:name="henrychuang.tw.chatheadmsg.MyDialog" android:launchMode="singleTask" android:screenOrientation="portrait"
+         <activity android:name="henrychuang.tw.chatheadmsg.MyDialog" android:launchMode="singleTask" 
              android:theme="@android:style/Theme.Translucent" />
          
         <service android:name="henrychuang.tw.chatheadmsg.ChatHeadService"></service>

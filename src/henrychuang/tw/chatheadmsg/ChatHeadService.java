@@ -3,6 +3,7 @@ package henrychuang.tw.chatheadmsg;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.os.Build;
@@ -11,6 +12,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -21,7 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class ChatHeadService extends Service {		
+public class ChatHeadService extends Service {			
 	private WindowManager windowManager;
 	private RelativeLayout chatheadView, removeView;
 	private LinearLayout txtView, txt_linearlayout;
@@ -42,8 +44,7 @@ public class ChatHeadService extends Service {
 		
 		windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 		
-		LayoutInflater inflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
-		
+		LayoutInflater inflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);		
 		
 		removeView = (RelativeLayout)inflater.inflate(R.layout.remove, null);
 		WindowManager.LayoutParams paramRemove = new WindowManager.LayoutParams(
@@ -261,6 +262,52 @@ public class ChatHeadService extends Service {
 		
 	}
 	
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		// TODO Auto-generated method stub
+		super.onConfigurationChanged(newConfig);
+		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            windowManager.getDefaultDisplay().getSize(szWindow);
+        } else {
+            int w = windowManager.getDefaultDisplay().getWidth();
+            int h = windowManager.getDefaultDisplay().getHeight();
+            szWindow.set(w, h);
+        }
+		
+		WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) chatheadView.getLayoutParams();
+				
+	    if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+	    	Log.d(Utility.LogTag, "ChatHeadService.onConfigurationChanged -> landscap");
+	    	
+	    	if(txtView != null){
+				txtView.setVisibility(View.GONE);
+			}
+	    	
+	    	if(layoutParams.y + (chatheadView.getHeight() + getStatusBarHeight()) > szWindow.y){
+	    		layoutParams.y = szWindow.y- (chatheadView.getHeight() + getStatusBarHeight());
+	    		windowManager.updateViewLayout(chatheadView, layoutParams);
+	    	}
+	    		    	
+	    	if(layoutParams.x != 0 && layoutParams.x < szWindow.x){
+				resetPosition(szWindow.x);
+			}
+	    	
+	    } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+	    	Log.d(Utility.LogTag, "ChatHeadService.onConfigurationChanged -> portrait");
+	    	
+	    	if(txtView != null){
+				txtView.setVisibility(View.GONE);
+			}
+	    	
+	    	if(layoutParams.x > szWindow.x){
+				resetPosition(szWindow.x);
+			}
+	    	
+	    }
+		
+	}
+	
 	private void resetPosition(int x_cord_now) {
         int w = chatheadView.getWidth();
 
@@ -299,7 +346,7 @@ public class ChatHeadService extends Service {
 	        	WindowManager.LayoutParams mParams = (WindowManager.LayoutParams) chatheadView.getLayoutParams();
 	            public void onTick(long t) {
 	                long step = (500 - t)/5;
-	                mParams.x = szWindow.x + (int)(double)bounceValue(step,x) - chatheadView.getWidth();
+	                mParams.x = szWindow.x + (int)(double)bounceValue(step,x) - chatheadView.getWidth();	                
 	                windowManager.updateViewLayout(chatheadView, mParams);
 	            }
 	            public void onFinish() {

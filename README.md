@@ -38,6 +38,14 @@ ScreenShot
 **LongPressing to Stop**<br/>
 ![](assets/pic_delete.png)
 
+<br/><br/>
+**landscape screenOrientation**<br/>
+![](assets/landscape.png)
+
+Update
+-----------
+**Support landscape screenOrientation** (2015-4-23)<br/>
+when screenOrientation change to portrait or landscape, ChatHead will reposition automatically.
 
 <br/><br/>
 henrychuang.tw@gmail.com
