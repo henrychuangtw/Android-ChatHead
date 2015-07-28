@@ -26,21 +26,21 @@ long click and move chathead to the round on bottom
 ScreenShot
 -----------
 **Dragging and Bounce animation**<br/>
-![](assets/drag.png)
+![](app/src/main/assets/drag.png)
 
 <br/><br/>
 **Messenger**<br/>
-![](assets/messenger1.png)
+![](app/src/main/assets/messenger1.png)
 <br/>
-![](assets/messenger2.png)
+![](app/src/main/assets/messenger2.png)
 
 <br/><br/>
 **LongPressing to Stop**<br/>
-![](assets/pic_delete.png)
+![](app/src/main/assets/pic_delete.png)
 
 <br/><br/>
 **landscape screenOrientation**<br/>
-![](assets/landscape.png)
+![](app/src/main/assets/landscape.png)
 
 Update
 -----------
