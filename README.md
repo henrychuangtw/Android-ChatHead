@@ -47,7 +47,7 @@ Update
 **Support landscape screenOrientation** (2015-4-23)<br/>
 when screenOrientation change to portrait or landscape, ChatHead will reposition automatically.
 <br/>
-**IDE convert** (2015-4-23)<br/>
+**IDE convert** (2015-7-28)<br/>
 from Eclipse to Android Studio.
 
 <br/><br/>

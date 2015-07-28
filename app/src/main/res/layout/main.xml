@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_A2E5F5"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    
+    <Button android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Show Message"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/btnMsg" />
+
+    <Button android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnStartService"
+        android:layout_above="@id/btnMsg"       
+        android:layout_centerHorizontal="true" 
+        android:text="Start Service"/>
+    
+    
+</RelativeLayout>
