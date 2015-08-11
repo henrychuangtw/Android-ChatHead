@@ -49,6 +49,9 @@ when screenOrientation change to portrait or landscape, ChatHead will reposition
 <br/>
 **IDE convert** (2015-7-28)<br/>
 from Eclipse to Android Studio.
+<br/>
+**Problem Solved** (2015-8-11)<br/>
+crash when close app from task manager
 
 <br/><br/>
 henrychuang.tw@gmail.com
