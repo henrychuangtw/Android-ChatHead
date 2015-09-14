@@ -1,7 +1,7 @@
-FB-ChatHead
+Android-ChatHead
 ===========
 
-ChatHead like FB messenger for Android app.
+ChatHead for Android app, like FB messenger.
 
 <br/><br/>
 
