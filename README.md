@@ -53,5 +53,4 @@ from Eclipse to Android Studio.
 **Problem Solved** (2015-8-11)<br/>
 crash when close app from task manager
 
-<br/><br/>
-henrychuang.tw@gmail.com
+
