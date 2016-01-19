@@ -12,7 +12,6 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -35,11 +34,12 @@ public class ChatHeadService extends Service {
 	private String sMsg = "";
 	
 	@SuppressWarnings("deprecation")
+
 	@Override
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
-		Log.d(Utility.LogTag, "ChatHeadService.onCreate()");
+		Log.d(Utils.LogTag, "ChatHeadService.onCreate()");
 		
 	}
 
@@ -96,7 +96,7 @@ public class ChatHeadService extends Service {
 				@Override
 				public void run() {
 					// TODO Auto-generated method stub
-					Log.d(Utility.LogTag, "Into runnable_longClick");
+					Log.d(Utils.LogTag, "Into runnable_longClick");
 
 					isLongclick = true;
 					removeView.setVisibility(View.VISIBLE);
@@ -238,7 +238,7 @@ public class ChatHeadService extends Service {
 
 						break;
 					default:
-						Log.d(Utility.LogTag, "chatheadView.setOnTouchListener  -> event.getAction() : default");
+						Log.d(Utils.LogTag, "chatheadView.setOnTouchListener  -> event.getAction() : default");
 						break;
 				}
 				return true;
@@ -280,7 +280,7 @@ public class ChatHeadService extends Service {
 		WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) chatheadView.getLayoutParams();
 				
 	    if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-	    	Log.d(Utility.LogTag, "ChatHeadService.onConfigurationChanged -> landscap");
+	    	Log.d(Utils.LogTag, "ChatHeadService.onConfigurationChanged -> landscap");
 	    	
 	    	if(txtView != null){
 				txtView.setVisibility(View.GONE);
@@ -296,7 +296,7 @@ public class ChatHeadService extends Service {
 			}
 	    	
 	    } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-	    	Log.d(Utility.LogTag, "ChatHeadService.onConfigurationChanged -> portrait");
+	    	Log.d(Utils.LogTag, "ChatHeadService.onConfigurationChanged -> portrait");
 	    	
 	    	if(txtView != null){
 				txtView.setVisibility(View.GONE);
@@ -379,7 +379,7 @@ public class ChatHeadService extends Service {
 	}
 	
 	private void chathead_longclick(){
-		Log.d(Utility.LogTag, "Into ChatHeadService.chathead_longclick() ");
+		Log.d(Utils.LogTag, "Into ChatHeadService.chathead_longclick() ");
 		
 		WindowManager.LayoutParams param_remove = (WindowManager.LayoutParams) removeView.getLayoutParams();
 		int x_cord_remove = (szWindow.x - removeView.getWidth()) / 2;
@@ -393,7 +393,7 @@ public class ChatHeadService extends Service {
 	
 	private void showMsg(String sMsg){
 		if(txtView != null && chatheadView != null ){
-			Log.d(Utility.LogTag, "ChatHeadService.showMsg -> sMsg=" + sMsg);
+			Log.d(Utils.LogTag, "ChatHeadService.showMsg -> sMsg=" + sMsg);
 			txt1.setText(sMsg);
 			myHandler.removeCallbacks(myRunnable);
 			
@@ -439,13 +439,13 @@ public class ChatHeadService extends Service {
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		// TODO Auto-generated method stub
-		Log.d(Utility.LogTag, "ChatHeadService.onStartCommand() -> startId=" + startId);
+		Log.d(Utils.LogTag, "ChatHeadService.onStartCommand() -> startId=" + startId);
 
 		if(intent != null){
 			Bundle bd = intent.getExtras();
 
 			if(bd != null)
-				sMsg = bd.getString(Utility.EXTRA_MSG);
+				sMsg = bd.getString(Utils.EXTRA_MSG);
 
 			if(sMsg != null && sMsg.length() > 0){
 				if(startId == Service.START_STICKY){
@@ -498,7 +498,7 @@ public class ChatHeadService extends Service {
 	@Override
 	public IBinder onBind(Intent intent) {
 		// TODO Auto-generated method stub
-		Log.d(Utility.LogTag, "ChatHeadService.onBind()");
+		Log.d(Utils.LogTag, "ChatHeadService.onBind()");
 		return null;
 	}
 	

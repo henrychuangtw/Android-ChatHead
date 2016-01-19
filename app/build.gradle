@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 23
+    buildToolsVersion '23.0.2'
 
     defaultConfig {
         applicationId "henrychuang.tw.chatheadmsg"
         minSdkVersion 10
-        targetSdkVersion 21
+        targetSdkVersion 23
     }
 
     buildTypes {
@@ -19,5 +19,5 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:18.0.0'
+    compile 'com.android.support:support-v4:23.1.1'
 }

@@ -52,5 +52,7 @@ from Eclipse to Android Studio.
 <br/>
 **Problem Solved** (2015-8-11)<br/>
 crash when close app from task manager
-
+<br/>
+**Runtime Permission** (2016-1-19)<br/>
+support Android 6.0 runtime permissions
 

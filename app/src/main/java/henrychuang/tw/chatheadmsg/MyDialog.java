@@ -1,5 +1,4 @@
 package henrychuang.tw.chatheadmsg;
-import henrychuang.tw.chatheadmsg.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -41,7 +40,7 @@ public class MyDialog extends Activity {
 				if(str.length() > 0){
 //					ChatHeadService.showMsg(MyDialog.this, str);
 					Intent it = new Intent(MyDialog.this, ChatHeadService.class);
-					it.putExtra(Utility.EXTRA_MSG, str);
+					it.putExtra(Utils.EXTRA_MSG, str);
 					startService(it);
 				}
 			}
