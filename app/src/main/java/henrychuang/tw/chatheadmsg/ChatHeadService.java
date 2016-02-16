@@ -210,7 +210,7 @@ public class ChatHeadService extends Service {
 						int x_diff = x_cord - x_init_cord;
 						int y_diff = y_cord - y_init_cord;
 
-						if(x_diff < 5 && y_diff < 5){
+						if(Math.abs(x_diff) < 5 && Math.abs(y_diff) < 5){
 							time_end = System.currentTimeMillis();
 							if((time_end - time_start) < 300){
 								chathead_click();
