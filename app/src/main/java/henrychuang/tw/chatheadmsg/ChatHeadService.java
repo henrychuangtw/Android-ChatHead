@@ -139,29 +139,29 @@ public class ChatHeadService extends Service {
 						y_cord_Destination = y_init_margin + y_diff_move;
 
 						if(isLongclick){
-							int x_bound_left = (szWindow.x - removeView.getWidth()) / 2 - 250;
-							int x_bound_right = (szWindow.x + removeView.getWidth()) / 2 + 100;
+							int x_bound_left = szWindow.x / 2 - (int)(removeView.getWidth() * 1.5);
+							int x_bound_right = szWindow.x / 2 +  (int)(removeView.getWidth() * 1.5);
+							int y_bound_top = szWindow.y - (int)(removeView.getHeight() * 1.5);
 
-							int y_bound_top = szWindow.y - (removeView.getHeight() + getStatusBarHeight()) - 200;
-
-							if((x_cord_Destination >= x_bound_left && x_cord_Destination <= x_bound_right) && y_cord_Destination >= y_bound_top){
+							if((x_cord >= x_bound_left && x_cord <= x_bound_right) && y_cord >= y_bound_top){
 								inBounded = true;
 
-								layoutParams.x = (szWindow.x - chatheadView.getWidth()) / 2;
-								layoutParams.y = szWindow.y - (removeView.getHeight() + getStatusBarHeight()) + 70;
+								int x_cord_remove = (int) ((szWindow.x - (remove_img_height * 1.5)) / 2);
+								int y_cord_remove = (int) (szWindow.y - ((remove_img_width * 1.5) + getStatusBarHeight() ));
 
 								if(removeImg.getLayoutParams().height == remove_img_height){
 									removeImg.getLayoutParams().height = (int) (remove_img_height * 1.5);
 									removeImg.getLayoutParams().width = (int) (remove_img_width * 1.5);
 
 									WindowManager.LayoutParams param_remove = (WindowManager.LayoutParams) removeView.getLayoutParams();
-									int x_cord_remove = (int) ((szWindow.x - (remove_img_height * 1.5)) / 2);
-									int y_cord_remove = (int) (szWindow.y - ((remove_img_width * 1.5) + getStatusBarHeight() ));
 									param_remove.x = x_cord_remove;
 									param_remove.y = y_cord_remove;
 
 									windowManager.updateViewLayout(removeView, param_remove);
 								}
+
+								layoutParams.x = x_cord_remove + (Math.abs(removeView.getWidth() - chatheadView.getWidth())) / 2;
+								layoutParams.y = y_cord_remove + (Math.abs(removeView.getHeight() - chatheadView.getHeight())) / 2 ;
 
 
 								windowManager.updateViewLayout(chatheadView, layoutParams);
