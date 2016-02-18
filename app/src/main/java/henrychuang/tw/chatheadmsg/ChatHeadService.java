@@ -139,9 +139,9 @@ public class ChatHeadService extends Service {
 						y_cord_Destination = y_init_margin + y_diff_move;
 
 						if(isLongclick){
-							int x_bound_left = szWindow.x / 2 - (int)(removeView.getWidth() * 1.5);
-							int x_bound_right = szWindow.x / 2 +  (int)(removeView.getWidth() * 1.5);
-							int y_bound_top = szWindow.y - (int)(removeView.getHeight() * 1.5);
+							int x_bound_left = szWindow.x / 2 - (int)(remove_img_width * 1.5);
+							int x_bound_right = szWindow.x / 2 +  (int)(remove_img_width * 1.5);
+							int y_bound_top = szWindow.y - (int)(remove_img_height * 1.5);
 
 							if((x_cord >= x_bound_left && x_cord <= x_bound_right) && y_cord >= y_bound_top){
 								inBounded = true;
@@ -162,7 +162,6 @@ public class ChatHeadService extends Service {
 
 								layoutParams.x = x_cord_remove + (Math.abs(removeView.getWidth() - chatheadView.getWidth())) / 2;
 								layoutParams.y = y_cord_remove + (Math.abs(removeView.getHeight() - chatheadView.getHeight())) / 2 ;
-
 
 								windowManager.updateViewLayout(chatheadView, layoutParams);
 								break;
