@@ -216,13 +216,7 @@ public class ChatHeadService extends Service {
 							}
 						}
 
-
-						x_cord_Destination = x_init_margin + x_diff;
 						y_cord_Destination = y_init_margin + y_diff;
-
-						int x_start;
-						x_start = x_cord_Destination;
-
 
 						int BarHeight =  getStatusBarHeight();
 						if (y_cord_Destination < 0) {
@@ -233,7 +227,7 @@ public class ChatHeadService extends Service {
 						layoutParams.y = y_cord_Destination;
 
 						inBounded = false;
-						resetPosition(x_start);
+						resetPosition(x_cord);
 
 						break;
 					default:
@@ -310,29 +304,25 @@ public class ChatHeadService extends Service {
 	}
 	
 	private void resetPosition(int x_cord_now) {
-        int w = chatheadView.getWidth();
+		if(x_cord_now <= szWindow.x / 2){
+			isLeft = true;
+			moveToLeft(x_cord_now);
 
-        if(x_cord_now == 0 || x_cord_now == szWindow.x - w){
+		} else {
+			isLeft = false;
+			moveToRight(x_cord_now);
 
-        } else if(x_cord_now + w / 2<= szWindow.x / 2){    	
-        	isLeft = true;       	
-            moveToLeft(x_cord_now);           
-            
-        } else if(x_cord_now + w / 2 > szWindow.x / 2){     	
-        	isLeft = false;        	
-            moveToRight(x_cord_now);
-     
-        }
-        
+		}
+
     }
-	 private void moveToLeft(int x_cord_now){
-		 
-	        final int x = x_cord_now;
+	 private void moveToLeft(final int x_cord_now){
+		 	final int x = szWindow.x - x_cord_now;
+
 	        new CountDownTimer(500, 5) {
 	        	WindowManager.LayoutParams mParams = (WindowManager.LayoutParams) chatheadView.getLayoutParams();
 	            public void onTick(long t) {
 	                long step = (500 - t)/5;
-	                mParams.x = (int)(double)bounceValue(step,x);
+	                mParams.x = 0 - (int)(double)bounceValue(step, x );
 	                windowManager.updateViewLayout(chatheadView, mParams);
 	            }
 	            public void onFinish() {
@@ -341,13 +331,12 @@ public class ChatHeadService extends Service {
 	            }
 	        }.start();
 	 }
-	 private  void moveToRight(int x_cord_now){
-	        final int x = x_cord_now;
+	 private  void moveToRight(final int x_cord_now){
 	        new CountDownTimer(500, 5) {
 	        	WindowManager.LayoutParams mParams = (WindowManager.LayoutParams) chatheadView.getLayoutParams();
 	            public void onTick(long t) {
 	                long step = (500 - t)/5;
-	                mParams.x = szWindow.x + (int)(double)bounceValue(step,x) - chatheadView.getWidth();	                
+	                mParams.x = szWindow.x + (int)(double)bounceValue(step, x_cord_now) - chatheadView.getWidth();
 	                windowManager.updateViewLayout(chatheadView, mParams);
 	            }
 	            public void onFinish() {
