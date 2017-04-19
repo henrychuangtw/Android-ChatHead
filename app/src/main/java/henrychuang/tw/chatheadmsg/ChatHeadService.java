@@ -1,6 +1,7 @@
 package henrychuang.tw.chatheadmsg;
 
 
+import android.annotation.TargetApi;
 import android.app.Service;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -257,11 +258,15 @@ public class ChatHeadService extends Service {
 	}
 
 
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		// TODO Auto-generated method stub
 		super.onConfigurationChanged(newConfig);
-		
+
+		if(windowManager == null)
+			windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             windowManager.getDefaultDisplay().getSize(szWindow);
         } else {
