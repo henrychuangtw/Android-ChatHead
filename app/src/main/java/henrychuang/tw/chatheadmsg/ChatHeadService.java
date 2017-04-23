@@ -44,6 +44,7 @@ public class ChatHeadService extends Service {
 		
 	}
 
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
 	private void handleStart(){
 		windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
@@ -265,7 +266,7 @@ public class ChatHeadService extends Service {
 		super.onConfigurationChanged(newConfig);
 
 		if(windowManager == null)
-			windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+			return;
 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             windowManager.getDefaultDisplay().getSize(szWindow);
